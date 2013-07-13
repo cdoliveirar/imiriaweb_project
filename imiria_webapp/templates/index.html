@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title> Imiria | Nature for everybody </title>
+<meta name="Author" content="D3C0" />
+<meta name="Keywords" content="nature, resort, life, naturaleza, vida, water, air, human" />
+<meta name="Description" content="Su visita decide lo mejor para mundo" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link href="/static/css/principal.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/mediaqueries.css" rel="stylesheet" type="text/css" />
+
+
+<!--[if lte IE 7]>
+<style type="text/css">
+body {word-wrap:break-word;}
+#outer2 {float:left; width:59.8%; background:#c0c0c0;}
+
+/* for IE6 */
+* html #wrapper {display:inline-block;}
+</style>
+<![endif]-->
+
+</head>
+
+<body>
+	<header>
+		<div class="imiria-wrap">
+			<div id="logo"><a href="/"> <img class="logo" src="/static/img/imirialogo02-14-2013.png" height="50" width="115" /> </a>
+			</div><!-- end logo -->
+			
+			<ul class="nav">
+				{% if user.is_authenticated %}
+				<li class="hmenu">
+					<a href="/products">
+						<span>Products</span>
+					</a>
+				</li>
+				<li class="hmenu">
+					<a href="/suppliers">
+						<span>Suppliers</span>
+					</a>
+				</li>
+				<li class="hmenu">
+					<a href="/people">
+						<span>People</span>
+					</a>
+				</li>
+				{% else %}
+				{% endif %}
+			
+				<li class="nav-login">
+					<a href="/accounts/signup/">
+						<span>Join</span>
+					</a>
+				</li>
+				<li class="nav-login">
+					<a href="/accounts/login/">
+						<span>Log in</span>
+					</a>
+				</li>
+				
+				
+			</ul>
+			
+		</div>
+			
+	</header>
+	
+<!-- end header -->
+
+<div id="content" class="clearfix">
+	<h2>a million ways from you</h2>
+	<div id="body"></div>
+	
+	
+	
+</div>
+	
+<footer>
+	<div class="imiria-wrap">
+		<div class="social-links">
+			<label>Follow us:</label>
+			<ul>
+				<li><a class="twitter" target="_blank" href="http://www.twitter.com/imiriasite" title="Viddy on Twitter" rel="nofollow"><span>Twitter</span></a></li>
+				<li><a class="facebook" target="_blank" href="http://www.facebook.com/imiriasite" title="Viddy on Facebook" rel="nofollow"><span>Facebook</span></a></li>
+				<li><a class="linkedin" target="_blank" href="http://www.linkedin.com/company/imiriainc" title="Viddy on LinkedIn" rel="nofollow"><span>LinkedIn</span></a></li>
+			</ul>
+		</div>
+
+		<ul id="footer-text">
+			<li><a href="index.html" title="Imiria, Inc">&copy; 2010 - 2013 Imiria, Inc.</a></li>
+			<li><a href="content/contact.html" title="Contact Imiria" rel="nofollow">Contact Us</a></li>
+			<li><a href="http://help.imiria.com/" title="Imiria&#39;s Blog" rel="nofollow">FAQ</a></li>
+			<!-- <li><a href="http://blog.viddy.com/" title="Imiria&#39;s Blog" rel="nofollow">Blog</a></li> -->
+			<li><a href="legal/terms.html" title="Imiria Terms and Conditions" rel="nofollow">Terms</a></li>
+			<li><a href="sitemap/index.html" title="Imiria Terms and Conditions" rel="nofollow">SiteMap</a></li>
+			<li><a href="legal/privacy.html" title="Imiria&#39;s Privacy Policy" rel="nofollow">Privacy</a></li>
+		</ul>
+	</div>
+</footer>
+
+</body>
+</html>
