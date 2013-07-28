@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block logo %}
+	<a href="/home"> <img class="logo" src="/static/img/imirialogo02-14-2013.png" height="50" width="115" /> </a>
+{% endblock logo %}	
+
+
+{% block nav %}
+				<li class="hmenu">
+					<a href="/products">
+						<span>Products</span>
+					</a>
+				</li>
+				<li class="hmenu">
+					<a href="/suppliers">
+						<span>Suppliers</span>
+					</a>
+				</li>
+				<li class="hmenu">
+					<a href="/people">
+						<span>People</span>
+					</a>
+				</li>
+				<li class="nav-login">
+					<a href="/accounts/logout/">
+						<span>log out</span>
+					</a>
+				</li>
+				<li class="nav-login">
+					<a href="/accounts/account/">
+						<span>you</span>
+					</a>
+				</li>
+				<li class="nav-login">
+					<a href="/business/create">
+						<span>Create org</span>
+					</a>
+				</li>
+{% endblock nav %}
+
+
+{% block content %} 
+	<p>Cuales son tus intereses?</p>
+		{% if user.is_authenticated %}
+			<p>Hola: {{user.username}}</p>
+		{% endif %}
+{% endblock content %} 
