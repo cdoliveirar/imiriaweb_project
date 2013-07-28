@@ -137,8 +137,8 @@ INSTALLED_APPS = (
 
 ACCOUNT_EMAIL_REQUIRED =True
 ACCOUNT_EMAIL_VERIFICATION = ("mandatory")
-LOGIN_REDIRECT_URL = '/'
-
+LOGIN_REDIRECT_URL = '/home'
+ACCOUNT_LOGOUT_REDIRECT_URL ='/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.deskgraphics.com.br'
@@ -146,7 +146,7 @@ EMAIL_HOST_USER = 'teste@deskgraphics.com.br'
 EMAIL_HOST_PASSWORD = 'aaaa11'
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'teste@deskgraphics.com.br'
+DEFAULT_FROM_EMAIL = 'support@imiria.com'
 
 
 

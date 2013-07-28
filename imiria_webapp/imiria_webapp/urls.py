@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #index
     url(r'^$', 'indexpackage.views.imiria_index'),
+    url(r'^home', 'imihome.views.imiria_home'),
     #auth
     url(r'^login/', 'authentication.views.login_user'),
     url(r'^join/signup/', 'authentication.views.login_user'),  # signup url de join para las redes sociales
