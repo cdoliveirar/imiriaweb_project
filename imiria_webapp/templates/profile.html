@@ -1,13 +1,36 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block body %}
+{% block logo %}
+	<a href="/home"> <img class="logo" src="/static/img/imirialogo02-14-2013.png" height="50" width="115" /> </a>
+{% endblock logo %}	
+
+{% block nav %}
+	<li class="hmenu">
+		<a href="/products"><span>Products</span></a>
+	</li>
+	<li class="hmenu">
+		<a href="/suppliers"><span>Suppliers</span></a>
+	</li>
+	<li class="hmenu">
+		<a href="/people"><span>People</span></a>
+	</li>
+	<li class="nav-login">
+		<a href="/accounts/logout/"><span>log out</span></a>
+	</li>
+	<li class="nav-login">
+		<a href="/settings/"><span>you</span></a>
+	</li>
+	<li class="nav-login">
+		<a href="/business/create"><span>Create org</span></a>
+	</li>
+{% endblock nav %}
+
 {% block content %}
-
-{% if user.is_authenticated %}
-					<p>Welcome {{ user.username }}. <a href="/logout">logout</a></p>
-				{% else %}
-    				<p>Welcome, new user.</p>
-				{% endif %}
-
+	<h4>Ingresa tu perfil empresarial</h4>
+	<form class="signup" id="signup_form" method="post" action="post">
+	  	{% csrf_token %}
+	  	{{ form.as_p }}
+	  	<button type="submit">submitea</button>
+	</form>
 {% endblock content %}
-{% endblock body %}

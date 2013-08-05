@@ -4,6 +4,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+
+from accountsetting.views import EnterpriceBusinessView
+
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'imiria_webapp.views.home', name='home'),
@@ -26,7 +30,7 @@ urlpatterns = patterns('',
     
     #allauth
     (r'^accounts/', include('allauth.urls')),
-    url(r'^accounts/profile/', 'businessusers.views.view_profile'),
-    
+    #setting account
+    url(r'^settings/', EnterpriceBusinessView.as_view()),
 )
 
