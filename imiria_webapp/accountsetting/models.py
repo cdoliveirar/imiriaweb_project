@@ -20,13 +20,16 @@ class AuthUser(models.Model):
         return self.username    
 
 
-class BusinessOrganization(models.Model):
+class BusinessType(models.Model):
     id = models.IntegerField(primary_key=True)
-    business_name = models.CharField(max_length=255, blank=True)
+    business_type_name = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(null=True, blank=True)
     class Meta:
-        db_table = 'business_organization'
-
+        db_table = 'business_type'
+    
+    def __unicode__(self):
+        return self.business_type_name
+    
 
 class Country(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -42,14 +45,15 @@ class Country(models.Model):
 
 class EnterpriseBusiness(models.Model):
     #id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(AuthUser)
+    user = models.ForeignKey(AuthUser, null=True, blank=True)
+    business_type = models.ForeignKey(BusinessType, null=True, blank=True)
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
-    business_name = models.TextField(blank=True)
-    logo = models.TextField(blank=True)
+    business_name = models.CharField(max_length=255, blank=True)
+    logo = models.CharField(max_length=255, blank=True)
     about = models.TextField(blank=True)
     website = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(null=True, blank=True)
-    country = models.ForeignKey(Country)
+    country = models.ForeignKey(Country, null=True, blank=True)
     class Meta:
         db_table = 'enterprise_business'

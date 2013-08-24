@@ -2,35 +2,93 @@
 {% load staticfiles %}
 
 {% block logo %}
-	<a href="/home"> <img class="logo" src="/static/img/imirialogo02-14-2013.png" height="50" width="115" /> </a>
+<a href="/home"> <img class="logo" src="/static/img/imirialogo02-14-2013.png" height="50" width="115" /> </a>
 {% endblock logo %}	
 
 {% block nav %}
-	<li class="hmenu">
-		<a href="/products"><span>Products</span></a>
-	</li>
-	<li class="hmenu">
-		<a href="/suppliers"><span>Suppliers</span></a>
-	</li>
-	<li class="hmenu">
-		<a href="/people"><span>People</span></a>
-	</li>
-	<li class="nav-login">
-		<a href="/accounts/logout/"><span>log out</span></a>
-	</li>
-	<li class="nav-login">
-		<a href="/settings/"><span>you</span></a>
-	</li>
-	<li class="nav-login">
-		<a href="/business/create"><span>Create org</span></a>
-	</li>
+<li class="hmenu">
+<a href="/products"><span>Products</span></a>
+</li>
+<li class="hmenu">
+<a href="/suppliers"><span>Suppliers</span></a>
+</li>
+<li class="hmenu">
+<a href="/people"><span>People</span></a>
+</li>
+<li class="nav-login">
+<a href="/accounts/logout/"><span>log out</span></a>
+</li>
+<li class="nav-login">
+<a href="/settings/"><span>you</span></a>
+</li>
+<li class="nav-login">
+<a href="/business/create"><span>Create org</span></a>
+</li>
 {% endblock nav %}
 
 {% block content %}
-	<h4>Ingresa tu perfil empresarial</h4>
-	<form class="signup" id="signup_form" method="post" action="post">
-	  	{% csrf_token %}
-	  	{{ form.as_p }}
-	  	<button type="submit">submitea</button>
-	</form>
+<h3>Who is the boss ? ---------------------------- </h3>
+<br>
+<form  id="signup_form" method="post" action=".">
+ 	{% csrf_token %}
+ 	{{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.business_type.errors }}
+        <label for="id_business_type">Business Type:</label>
+        {{ form.business_type }}
+    </div>
+    <hr>
+    <div class="fieldWrapper">
+        {{ form.first_name.errors }}
+        <label for="id_first_name">First Name:</label>
+        {{ form.first_name }}
+        
+        {{ form.last_name.errors }}
+        <label for="id_last_name">Last Name:</label>
+        {{ form.last_name }}
+    </div>
+    
+    <!-- <div class="fieldWrapper">
+        {{ form.last_name.errors }}
+        <label for="id_message">Last Name:</label>
+        {{ form.last_name }}
+    </div>
+     -->
+    <hr>
+    <br>
+    <h3>Profile Info -------------------------------- </h3>
+    <br>
+    <div class="fieldWrapper">
+        {{ form.country.errors }}
+        <label for="id_country">Country: </label>
+        {{ form.country }}
+    </div>
+    <hr>
+    <div class="fieldWrapper">
+        {{ form.business_name.errors }}
+        <label for="id_business_name">Business Name:</label>
+        {{ form.business_name }}
+    </div>
+    <hr>
+    <div class="fieldWrapper">
+        {{ form.logo.errors }}
+        <label for="id_logo">Logo:</label>
+        {{ form.logo }}
+    </div>
+    <hr>
+    <div class="fieldWrapper">
+        {{ form.about.errors }}
+        <label for="id_about">About: </label>
+        {{ form.about }}
+    </div>
+    <hr>
+    <div class="fieldWrapper">
+        {{ form.website.errors }}
+        <label for="id_website">WebSite: </label>
+        {{ form.website }}
+    </div>
+ 	
+<button type="submit">Submit</button>
+</form>
+
 {% endblock content %}
