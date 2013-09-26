@@ -4,16 +4,22 @@
 @author: carlos oliveira
 '''
 
-from django.shortcuts import HttpResponseRedirect, render
+from django.shortcuts import HttpResponseRedirect, render_to_response
 from django.template import RequestContext
 from django.views.generic import CreateView, DetailView
 from django.views.generic.edit import FormView
 from .forms import BusinessProfile_form
-from .models import EnterpriseBusiness
+#from .models import EnterpriseBusiness
 
 
 #def account_setting(request):
 #    return render_to_response('profile.html',"",context_instance=RequestContext(request))
+
+def ver_perfil(request):
+    return render_to_response('setting_profile.html',"",context_instance=RequestContext(request))
+
+
+
 
 '''
 class EnterpriceBusinessView(CreateView):
@@ -65,6 +71,6 @@ class BusinessProfile_view(FormView):
     '''    
         
 
-        
+
 
     

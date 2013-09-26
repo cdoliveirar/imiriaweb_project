@@ -144,7 +144,7 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    
+    'accountsetting'
 
 )
 
@@ -153,6 +153,7 @@ ACCOUNT_EMAIL_REQUIRED =True
 ACCOUNT_EMAIL_VERIFICATION = ("mandatory")
 LOGIN_REDIRECT_URL = '/home'
 ACCOUNT_LOGOUT_REDIRECT_URL ='/'
+#ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.deskgraphics.com.br'
@@ -185,6 +186,10 @@ TEMPLATE_CONTEXT_PROCESSORS= (
                               'allauth.account.context_processors.account',
                               'allauth.socialaccount.context_processors.socialaccount',
 )
+
+#AUTH_USER_MODEL = 'accountsetting.DecoUser'
+
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

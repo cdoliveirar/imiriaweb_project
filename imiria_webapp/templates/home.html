@@ -34,7 +34,7 @@
 					</a>
 				</li>
 				<li class="nav-login">
-					<a href="/business/create">
+					<a href="/profile">
 						<span>Create org</span>
 					</a>
 				</li>
@@ -44,6 +44,6 @@
 {% block content %} 
 	<p>Cuales son tus intereses?</p>
 		{% if user.is_authenticated %}
-			<p>Hola: {{user.username}}</p>
+			<p>Hola espero que estes bien: {{user.username}}</p>
 		{% endif %}
 {% endblock content %} 

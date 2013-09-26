@@ -1,4 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
+
+
+class DecoUser(AbstractUser):
+    karma = models.PositiveIntegerField(_("karma"),
+        default=0,blank=True)
+
+
+
 
 # Create your models here.
 class AuthUser(models.Model):
@@ -43,9 +54,10 @@ class Country(models.Model):
     
     
 
+'''
 class EnterpriseBusiness(models.Model):
     #id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(AuthUser, null=True, blank=True)
+    user = models.ForeignKey(User, null=True, blank=True)
     business_type = models.ForeignKey(BusinessType, null=True, blank=True)
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
@@ -57,3 +69,17 @@ class EnterpriseBusiness(models.Model):
     country = models.ForeignKey(Country, null=True, blank=True)
     class Meta:
         db_table = 'enterprise_business'
+'''
+
+
+'''
+class MyUser(AbstractBaseUser):
+    identifier = models.CharField(max_length=40, unique=True, db_index=True)
+    date_of_birth = models.DateTimeField()
+    height = models.FloatField()
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+
+    USERNAME_FIELD = 'identifier'
+    REQUIRED_FIELDS = ['date_of_birth', 'height']
+'''
