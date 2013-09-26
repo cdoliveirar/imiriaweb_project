@@ -33,6 +33,9 @@ urlpatterns = patterns('',
     #setting account
     #url(r'^settings/', EnterpriceBusinessView.as_view()),
     url(r'^settings/', BusinessProfile_view.as_view()),
+
+    #setting profile
+    url(r'^profile/', 'accountsetting.views.profile_view'),
     
 )
 

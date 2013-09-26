@@ -50,7 +50,7 @@ class EnterpriseBusiness(models.Model):
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
     business_name = models.CharField(max_length=255, blank=True)
-    logo = models.CharField(max_length=255, blank=True)
+    logo = models.ImageField(upload_to="images/logos", max_length=255, blank=True)
     about = models.TextField(blank=True)
     website = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(null=True, blank=True)
