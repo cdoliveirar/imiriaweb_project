@@ -1,5 +1,5 @@
 from django import forms
-from .models import EnterpriseBusiness
+#from .models import EnterpriseBusiness
 from .models import Country
 from .models import AuthUser
 from django.forms.widgets import Widget
@@ -29,6 +29,6 @@ class BusinessProfile_form(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     business_name = forms.CharField(max_length=50)
-    logo = forms.CharField(max_length=30)
+    logo = forms.ImageField()
     about = forms.CharField(widget=forms.Textarea)
     website = forms.CharField(max_length=50)

@@ -4,22 +4,23 @@
 @author: carlos oliveira
 '''
 
+
 from django.shortcuts import HttpResponseRedirect, render, render_to_response
 from django.template import RequestContext
 from django.views.generic import CreateView, DetailView
 from django.views.generic.edit import FormView
 from .forms import BusinessProfile_form
-from .models import EnterpriseBusiness
+#from .models import EnterpriseBusiness
 
-
-
-def profile_view(request):
-    enterpriseBusinessList = EnterpriseBusiness.objects.all()
-    print enterpriseBusinessList
-    return render_to_response('settings_profile.html',{"enterpriseBusinessList" : enterpriseBusinessList},context_instance=(request))
 
 #def account_setting(request):
 #    return render_to_response('profile.html',"",context_instance=RequestContext(request))
+
+def ver_perfil(request):
+    return render_to_response('setting_profile.html',"",context_instance=RequestContext(request))
+
+def enterprice_information(request):
+    return render_to_response('profile_enterprice.html',"",context_instance=RequestContext(request))
 
 '''
 class EnterpriceBusinessView(CreateView):
@@ -71,6 +72,6 @@ class BusinessProfile_view(FormView):
     '''    
         
 
-        
+
 
     

@@ -12,3 +12,4 @@ class CountryAdmin(admin.ModelAdmin):
     list_display = ('country_name',)
     
 admin.site.register(Country, CountryAdmin)
+

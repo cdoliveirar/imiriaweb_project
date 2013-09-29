@@ -7,10 +7,10 @@
 
 {% block nav %}
 <li class="hmenu">
-<a href="/products"><span>Products</span></a>
+<a href="/products"><span>My Products</span></a>
 </li>
 <li class="hmenu">
-<a href="/suppliers"><span>Suppliers</span></a>
+<a href="/suppliers"><span>Network</span></a>
 </li>
 <li class="hmenu">
 <a href="/people"><span>People</span></a>
@@ -19,25 +19,24 @@
 <a href="/accounts/logout/"><span>log out</span></a>
 </li>
 <li class="nav-login">
-<a href="/settings/"><span>you</span></a>
+<a href="/settings/"><span>settings</span></a>
 </li>
-<li class="nav-login">
-<a href="/business/create"><span>Create org</span></a>
-</li>
+
 {% endblock nav %}
 
 {% block content %}
-<h3>Who is the boss ? ---------------------------- </h3>
-<br>
+<h3>Settings</h3>
+<h2>Your account setting</h2>
+<hr>
+    <a href="/settings">PROFILE</a>  | <a href="/settings/enterprice">ENTERPRICE INFORMATION</a> | <a href="">PASSWORD</a>  
+<hr>
+
+
 <form  id="signup_form" method="post" action=".">
  	{% csrf_token %}
  	{{ form.non_field_errors }}
-    <div class="fieldWrapper">
-        {{ form.business_type.errors }}
-        <label for="id_business_type">Business Type:</label>
-        {{ form.business_type }}
-    </div>
-    <hr>
+    
+    
     <div class="fieldWrapper">
         {{ form.first_name.errors }}
         <label for="id_first_name">First Name:</label>
@@ -54,21 +53,7 @@
         {{ form.last_name }}
     </div>
      -->
-    <hr>
-    <br>
-    <h3>Profile Info -------------------------------- </h3>
-    <br>
-    <div class="fieldWrapper">
-        {{ form.country.errors }}
-        <label for="id_country">Country: </label>
-        {{ form.country }}
-    </div>
-    <hr>
-    <div class="fieldWrapper">
-        {{ form.business_name.errors }}
-        <label for="id_business_name">Business Name:</label>
-        {{ form.business_name }}
-    </div>
+       
     <hr>
     <div class="fieldWrapper">
         {{ form.logo.errors }}
@@ -76,19 +61,8 @@
         {{ form.logo }}
     </div>
     <hr>
-    <div class="fieldWrapper">
-        {{ form.about.errors }}
-        <label for="id_about">About: </label>
-        {{ form.about }}
-    </div>
-    <hr>
-    <div class="fieldWrapper">
-        {{ form.website.errors }}
-        <label for="id_website">WebSite: </label>
-        {{ form.website }}
-    </div>
- 	
-<button type="submit">Submit</button>
+    
+    <button type="submit">Submit</button>
 </form>
 
 {% endblock content %}

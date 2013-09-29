@@ -10,12 +10,12 @@
 {% block nav %}
 				<li class="hmenu">
 					<a href="/products">
-						<span>Products</span>
+						<span>My Products</span>
 					</a>
 				</li>
 				<li class="hmenu">
 					<a href="/suppliers">
-						<span>Suppliers</span>
+						<span>Network</span>
 					</a>
 				</li>
 				<li class="hmenu">
@@ -29,21 +29,17 @@
 					</a>
 				</li>
 				<li class="nav-login">
-					<a href="/settings/">
-						<span>you</span>
+					<a href="/settings/profile">
+						<span>Settings</span>
 					</a>
 				</li>
-				<li class="nav-login">
-					<a href="/profile">
-						<span>profile</span>
-					</a>
-				</li>
+					
 {% endblock nav %}
 
 
 {% block content %} 
 	<p>Cuales son tus intereses?</p>
 		{% if user.is_authenticated %}
-			<p>Hola: {{user.username}}</p>
+			<p>Hola espero que estes bien: {{user.username}}</p>
 		{% endif %}
 {% endblock content %} 
