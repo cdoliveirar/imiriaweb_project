@@ -1,8 +1,15 @@
 from django import forms
-#from .models import EnterpriseBusiness
+from .models import EnterpriseBusiness
 from .models import Country
-from .models import AuthUser
-from django.forms.widgets import Widget
+#from .models import AuthUser
+#from django.forms.widgetsm import Widget
+from django.forms import ModelForm
+
+
+class BusinessProfileForm(ModelForm):
+    class Meta:
+        model = EnterpriseBusiness
+        fields = ['first_name','last_name','business_name','user']
 
 
 '''
@@ -25,6 +32,8 @@ class BusinessProfile_form(forms.ModelForm):
 
 '''
 # insert con este form!!
+
+'''
 class BusinessProfile_form(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
@@ -32,3 +41,4 @@ class BusinessProfile_form(forms.Form):
     logo = forms.ImageField()
     about = forms.CharField(widget=forms.Textarea)
     website = forms.CharField(max_length=50)
+'''

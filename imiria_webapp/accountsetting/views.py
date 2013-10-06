@@ -5,22 +5,51 @@
 '''
 
 
-from django.shortcuts import HttpResponseRedirect, render, render_to_response
+from django.shortcuts import HttpResponseRedirect,render, render_to_response
 from django.template import RequestContext
 from django.views.generic import CreateView, DetailView
 from django.views.generic.edit import FormView
-from .forms import BusinessProfile_form
+from .forms import BusinessProfileForm
+#from .forms import BusinessProfile_form
 #from .models import EnterpriseBusiness
 
 
 #def account_setting(request):
 #    return render_to_response('profile.html',"",context_instance=RequestContext(request))
+'''
+def ver_perfil(request):
+
+    return render_to_response('profile.html',"",context_instance=RequestContext(request))
+
+'''
 
 def ver_perfil(request):
-    return render_to_response('setting_profile.html',"",context_instance=RequestContext(request))
+    if request.method == 'POST': # If the form has been submitted...
+        form = BusinessProfileForm(request.POST)
+        if form.is_valid():
+            # Process the data in form.cleaned_data
+            userId = request.user.id
+            form.save()
+
+            return HttpResponseRedirect('/settings/') # Redirect after POST
+    else:
+        form = BusinessProfileForm() # Still an unbound form
+    return render(request, 'profile.html', {'form': form,})
+
 
 def enterprice_information(request):
     return render_to_response('profile_enterprice.html',"",context_instance=RequestContext(request))
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 class EnterpriceBusinessView(CreateView):
@@ -35,18 +64,20 @@ class EnterpriceBusinessViewDetail(DetailView):
     template_name = "profile_detail.html"
 '''
     
+'''
 class BusinessProfile_view(FormView):
     form_class = BusinessProfile_form
     template_name = "profile.html"
     #success_url = '/'
-    '''
+   
+    #option 1
     def form_valid(self, form):
         form.instance.first_name = self.request.first_name
         
         #frm = BusinessProfile_form(self.request.POST)
         return super(BusinessProfile_view,self).form_valid(form)
-    '''
-    
+   
+    #option 2
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
@@ -61,7 +92,7 @@ class BusinessProfile_view(FormView):
             return HttpResponseRedirect('/settings')      
         return render(request, self.template_name, {'form': form})
     
-    '''
+    
     def is_valid(self, form):
         user = User.objects.create_user(
                 username=form.cleaned_data['username'],

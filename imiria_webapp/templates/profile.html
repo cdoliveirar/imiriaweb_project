@@ -7,7 +7,7 @@
 
 {% block nav %}
 <li class="hmenu">
-<a href="/products"><span>My Products</span></a>
+<a href="/settings/enterprice"><span>My Products</span></a>
 </li>
 <li class="hmenu">
 <a href="/suppliers"><span>Network</span></a>
@@ -35,8 +35,7 @@
 <form  id="signup_form" method="post" action=".">
  	{% csrf_token %}
  	{{ form.non_field_errors }}
-    
-    
+        
     <div class="fieldWrapper">
         {{ form.first_name.errors }}
         <label for="id_first_name">First Name:</label>
@@ -46,19 +45,23 @@
         <label for="id_last_name">Last Name:</label>
         {{ form.last_name }}
     </div>
-    
     <!-- <div class="fieldWrapper">
         {{ form.last_name.errors }}
         <label for="id_message">Last Name:</label>
         {{ form.last_name }}
     </div>
      -->
-       
     <hr>
     <div class="fieldWrapper">
         {{ form.logo.errors }}
         <label for="id_logo">Logo:</label>
         {{ form.logo }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.user.errors }}
+        <label for="id_user">User:</label>
+        {{ form.user }}
     </div>
     <hr>
     

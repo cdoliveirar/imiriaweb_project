@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-from accountsetting.views import BusinessProfile_view
+#from accountsetting.views import BusinessProfile_view
 
 
 urlpatterns = patterns('',
@@ -32,11 +32,11 @@ urlpatterns = patterns('',
     (r'^accounts/', include('allauth.urls')),
     #setting account
     #url(r'^settings/', EnterpriceBusinessView.as_view()),
-    url(r'^settings/', BusinessProfile_view.as_view()),
+    #url(r'^settings/', BusinessProfile_view.as_view()),
     #ver profile
-    url(r'^settings/enterprice', 'accountsetting.views.enterprice_information'),
+    url(r'^settings/','accountsetting.views.ver_perfil'),
 
-    url(r'^profile/','accountsetting.views.ver_perfil'),
+    url(r'^settings/enterprice', 'accountsetting.views.enterprice_information'),
 
 )
 

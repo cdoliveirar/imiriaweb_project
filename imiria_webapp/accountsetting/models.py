@@ -10,7 +10,7 @@ class DecoUser(AbstractUser):
 
 
 
-
+'''
 # Create your models here.
 class AuthUser(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -29,7 +29,7 @@ class AuthUser(models.Model):
     
     def __unicode__(self):
         return self.username    
-
+'''
 
 class BusinessType(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -57,7 +57,7 @@ class Country(models.Model):
 
 class EnterpriseBusiness(models.Model):
     #id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User, null=True, blank=True)
+    user = models.OneToOneField(User)
     business_type = models.ForeignKey(BusinessType, null=True, blank=True)
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
@@ -67,6 +67,10 @@ class EnterpriseBusiness(models.Model):
     website = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(null=True, blank=True)
     country = models.ForeignKey(Country, null=True, blank=True)
+
+    def __str__(self):  
+          return '%s profile' % self.user
+    
     class Meta:
         db_table = 'enterprise_business'
 
