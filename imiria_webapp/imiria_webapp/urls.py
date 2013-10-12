@@ -34,7 +34,7 @@ urlpatterns = patterns('',
     #url(r'^settings/', EnterpriceBusinessView.as_view()),
     #url(r'^settings/', BusinessProfile_view.as_view()),
     #ver profile
-    url(r'^settings/','accountsetting.views.ver_perfil'),
+    url(r'^settings/','accountsetting.views.b2b_profile'),
 
     url(r'^settings/enterprice', 'accountsetting.views.enterprice_information'),
 

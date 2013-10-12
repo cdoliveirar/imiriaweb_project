@@ -10,6 +10,9 @@ from django.template import RequestContext
 from django.views.generic import CreateView, DetailView
 from django.views.generic.edit import FormView
 from .forms import BusinessProfileForm
+from .models import EnterpriseBusiness
+from django.contrib.auth.models import User
+
 #from .forms import BusinessProfile_form
 #from .models import EnterpriseBusiness
 
@@ -23,18 +26,36 @@ def ver_perfil(request):
 
 '''
 
-def ver_perfil(request):
-    if request.method == 'POST': # If the form has been submitted...
+def b2b_profile(request):
+    
+    userObj= User.objects.get(id=request.user.id)
+    
+    business = EnterpriseBusiness()
+
+    if request.method == 'POST':
+        #form = BusinessProfileForm(request.POST,instance=request.user)
         form = BusinessProfileForm(request.POST)
         if form.is_valid():
-            # Process the data in form.cleaned_data
-            userId = request.user.id
-            form.save()
+            #form.save()
+            #obj, created = EnterpriseBusiness.objects.get_or_create(user= userObj)
+            instance = form.save(commit=False)
+            instance = EnterpriseBusiness.objects.get(user = userObj)
+            instance.first_name = request.POST['first_name']
+            instance.last_name =  request.POST['last_name']
+            instance.business_name=  request.POST['business_name']
+            instance.save()
 
-            return HttpResponseRedirect('/settings/') # Redirect after POST
+            return HttpResponseRedirect('/settings/') 
     else:
-        form = BusinessProfileForm() # Still an unbound form
-    return render(request, 'profile.html', {'form': form,})
+        
+        obj, created = EnterpriseBusiness.objects.get_or_create(user= userObj)
+
+
+        form = BusinessProfileForm(instance = obj)
+        #form = BusinessProfileForm() 
+    
+    return render(request, 'profile.html', {'form': form})
+    #return render_to_response('profile.html',{'form': form},context_instance=RequestContext(request))
 
 
 def enterprice_information(request):

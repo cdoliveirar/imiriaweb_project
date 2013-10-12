@@ -9,7 +9,7 @@ from django.forms import ModelForm
 class BusinessProfileForm(ModelForm):
     class Meta:
         model = EnterpriseBusiness
-        fields = ['first_name','last_name','business_name','user']
+        fields = ['first_name','last_name','business_name']
 
 
 '''
