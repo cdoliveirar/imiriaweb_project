@@ -6,29 +6,16 @@
 {% endblock logo %}	
 
 {% block nav %}
-<li class="hmenu">
-<a href="/settings/enterprice"><span>My Products</span></a>
-</li>
-<li class="hmenu">
-<a href="/suppliers"><span>Network</span></a>
-</li>
-<li class="hmenu">
-<a href="/people"><span>People</span></a>
-</li>
-<li class="nav-login">
-<a href="/accounts/logout/"><span>log out</span></a>
-</li>
-<li class="nav-login">
-<a href="/settings/"><span>settings</span></a>
-</li>
-
+   {{block.super}}
 {% endblock nav %}
 
 {% block content %}
 <h3>Settings</h3>
 <h2>Your account setting</h2>
 <hr>
-    <a href="/settings">PROFILE</a>  | <a href="/settings/enterprice">ENTERPRICE INFORMATION</a> | <a href="">PASSWORD</a>  
+    <a href="/settings/profile">PROFILE</a>  | 
+    <a href="/settings/enterprice/">ENTERPRICE INFORMATION</a> | 
+    <a href="/accounts/password/change/">PASSWORD</a>  
 <hr>
 
 
@@ -54,8 +41,8 @@
     <hr>
     <div class="fieldWrapper">
         {{ form.business_name.errors }}
-        <label for="id_business_name">business name:</label>
-        {{ form.business_name }}
+        <label for="id_business_card">Business Card:</label>
+        {{ form.business_card }}
     </div>
 
     <div class="fieldWrapper">

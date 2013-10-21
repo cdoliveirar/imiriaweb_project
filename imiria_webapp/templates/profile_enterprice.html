@@ -19,59 +19,70 @@
 		<a href="/accounts/logout/"><span>log out</span></a>
 	</li>
 	<li class="nav-login">
-		<a href="/settings/"><span>Settings</span></a>
+		<a href="/settings/profile"><span>Settings</span></a>
 	</li>
 {% endblock nav %}
 
 {% block content %}
 	
 	<h3>Settings</h3>
-	<h2>Your account setting</h2>
+	<h2>Your Business Information</h2>
 	<hr>
-	    <a href="/settings">PROFILE</a>  | <a href="/settings/enterprice">ENTERPRICE INFORMATION</a> | <a href="">PASSWORD</a>  
+		<a href="/settings/profile">PROFILE</a>  | 
+	    <a href="/settings/enterprice">ENTERPRICE INFORMATION</a> |
+	    <a href="/accounts/password/change/">PASSWORD</a>
+
 	<hr>
 
 	<form  id="signup_form" method="post" action=".">
 	 	{% csrf_token %}
 	 	{{ form.non_field_errors }}
+
+
 	    <div class="fieldWrapper">
+	        {{ form.business_name.errors }}
+	        <label for="id_business_name">Business Name:</label>
+	        {{ form.business_name }}
+	    </div>
+
+         <hr>
+        <div class="fieldWrapper">
+	        {{ form.logo.errors }}
+	        <label for="id_logo">Logo:</label>
+	        {{ form.logo }}
+	    </div>
+	    <hr>
+
+        <div class="fieldWrapper">
+	        {{ form.about.errors }}
+	        <label for="id_about">About: </label>
+	        {{ form.about }}
+	    </div>
+
+        <hr>
+	    <div class="fieldWrapper">
+	        {{ form.website.errors }}
+	        <label for="id_website">WebSite: </label>
+	        {{ form.website }}
+	    </div>
+
+        <hr>
+        <div class="fieldWrapper">
 	        {{ form.business_type.errors }}
 	        <label for="id_business_type">Business Type:</label>
 	        {{ form.business_type }}
 	    </div>
 	    <hr>
 	    <br>
-	    <h3>Profile Info -------------------------------- </h3>
-	    <br>
 	    <div class="fieldWrapper">
 	        {{ form.country.errors }}
 	        <label for="id_country">Country: </label>
 	        {{ form.country }}
 	    </div>
-	    <hr>
-	    <div class="fieldWrapper">
-	        {{ form.business_name.errors }}
-	        <label for="id_business_name">Business Name:</label>
-	        {{ form.business_name }}
-	    </div>
-	    <hr>
-	    <div class="fieldWrapper">
-	        {{ form.logo.errors }}
-	        <label for="id_logo">Logo:</label>
-	        {{ form.logo }}
-	    </div>
-	    <hr>
-	    <div class="fieldWrapper">
-	        {{ form.about.errors }}
-	        <label for="id_about">About: </label>
-	        {{ form.about }}
-	    </div>
-	    <hr>
-	    <div class="fieldWrapper">
-	        {{ form.website.errors }}
-	        <label for="id_website">WebSite: </label>
-	        {{ form.website }}
-	    </div>
+
+        <hr>
+
+
 	 	
 		<button type="submit">Submit</button>
 	</form>

@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #index
     url(r'^$', 'indexpackage.views.imiria_index'),
-    url(r'^home', 'imihome.views.imiria_home'),
+    url(r'^home/$', 'imihome.views.imiria_home'),
     #auth
     url(r'^login/', 'authentication.views.login_user'),
     url(r'^join/signup/', 'authentication.views.login_user'),  # signup url de join para las redes sociales
@@ -34,9 +34,6 @@ urlpatterns = patterns('',
     #url(r'^settings/', EnterpriceBusinessView.as_view()),
     #url(r'^settings/', BusinessProfile_view.as_view()),
     #ver profile
-    url(r'^settings/','accountsetting.views.b2b_profile'),
-
-    url(r'^settings/enterprice', 'accountsetting.views.enterprice_information'),
-
+    (r'^settings/', include('accountsetting.urls')),
 )
 

@@ -8,32 +8,7 @@
 
 
 {% block nav %}
-				<li class="hmenu">
-					<a href="/products">
-						<span>My Products</span>
-					</a>
-				</li>
-				<li class="hmenu">
-					<a href="/suppliers">
-						<span>Network</span>
-					</a>
-				</li>
-				<li class="hmenu">
-					<a href="/people">
-						<span>People</span>
-					</a>
-				</li>
-				<li class="nav-login">
-					<a href="/accounts/logout/">
-						<span>log out</span>
-					</a>
-				</li>
-				<li class="nav-login">
-					<a href="/settings">
-						<span>Settings</span>
-					</a>
-				</li>
-					
+	{{block.super}}
 {% endblock nav %}
 
 

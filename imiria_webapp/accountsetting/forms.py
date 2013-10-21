@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.admindocs.tests import fields
 from .models import EnterpriseBusiness
 from .models import Country
 #from .models import AuthUser
@@ -6,10 +7,15 @@ from .models import Country
 from django.forms import ModelForm
 
 
+class OnwerProfileForm(ModelForm):
+    class Meta:
+        model = EnterpriseBusiness
+        fields = ['first_name','last_name','business_card']
+
 class BusinessProfileForm(ModelForm):
     class Meta:
         model = EnterpriseBusiness
-        fields = ['first_name','last_name','business_name']
+        fields = ['business_name','logo','about','website','business_type','country']
 
 
 '''

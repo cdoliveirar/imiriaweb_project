@@ -26,9 +26,36 @@
 					<a href="/"> <img class="logo" src="/static/img/imirialogo02-14-2013.png" height="50" width="115" /> </a>
 				{% endblock logo %}	
 			</div><!-- end logo -->
+			
 			<ul class="nav">
 				{% block nav%}
-					<p>algo es algo	en Base.html
+
+					<li class="hmenu">
+					<a href="/products">
+						<span>My Products</span>
+					</a>
+					</li>
+					<li class="hmenu">
+						<a href="/suppliers">
+							<span>Network</span>
+						</a>
+					</li>
+					<li class="hmenu">
+						<a href="/people/">
+							<span>People</span>
+						</a>
+					</li>
+					<li class="nav-login">
+						<a href="/accounts/logout/">
+							<span>log out</span>
+						</a>
+					</li>
+					<li class="nav-login">
+						<a href="/settings/profile">
+							<span>Settings</span>
+						</a>
+					</li>
+				
 				{% endblock nav%}
 			</ul>
 		</div>
