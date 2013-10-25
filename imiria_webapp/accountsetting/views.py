@@ -3,15 +3,20 @@
 '''
 @author: carlos oliveira
 '''
+from distutils.command.install import install
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import HttpResponseRedirect,render, render_to_response
 from django.template import RequestContext
 from django.views.generic import CreateView, DetailView
 from django.views.generic.edit import FormView
+from orca.httpserver import _HTTPRequestHandler
+
 from .forms import OnwerProfileForm
 from .forms import BusinessProfileForm
 from .models import EnterpriseBusiness
+from .models import BusinessType
+from .models import Country
 from django.contrib.auth.models import User
 
 #from .forms import BusinessProfile_form
@@ -52,8 +57,6 @@ def owner_profile(request):
     else:
         
         obj, created = EnterpriseBusiness.objects.get_or_create(user= userObj)
-
-
         form = OnwerProfileForm(instance = obj)
         #form = BusinessProfileForm() 
     
@@ -75,9 +78,19 @@ def business_profile(request):
             #obj, created = EnterpriseBusiness.objects.get_or_create(user= userObj)
             instance = form.save(commit=False)
             instance = EnterpriseBusiness.objects.get(user = userObj)
-            instance.business_type = request.POST['business_name']
-            instance.business_name =  request.POST['business_type']
-            instance.business_card = request.POST['business_card']
+            instance.business_name = request.POST['business_name']
+            instance.logo = request.POST['logo']
+            instance.about = request.POST['about']
+            instance.website = request.POST['website']
+
+            businessTypeId =  request.POST['business_type']
+            bt = BusinessType.objects.get(id = businessTypeId)
+            instance.business_type = bt
+
+            countryId  = request.POST['country']
+            country = Country.objects.get(id = countryId)
+            instance.country = country
+
             instance.save()
 
             return HttpResponseRedirect('/settings/enterprice')
