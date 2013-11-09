@@ -3,6 +3,10 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+# wizard part
+from django.conf.urls import patterns
+from wizard.forms import ContactForm1, ContactForm2
+from wizard.views import ContactWizard
 
 
 #from accountsetting.views import BusinessProfile_view
@@ -35,5 +39,8 @@ urlpatterns = patterns('',
     #url(r'^settings/', BusinessProfile_view.as_view()),
     #ver profile
     (r'^settings/', include('accountsetting.urls')),
+
+    (r'^posting_product/', 'products.views.posting_product'),
+
 )
 

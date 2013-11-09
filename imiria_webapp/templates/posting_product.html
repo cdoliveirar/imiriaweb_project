@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Posting Product | Imiria {% endblock title %}
+
+{% block nav %}
+	{{block.super}}
+{% endblock nav %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+	    <p>Hola {{user.username}}</p>
+        <p>add some new product of you.</p>
+    {% endif %}
+    <hr>
+
+    <form  id="signup_form" method="post" action=".">
+	 	{% csrf_token %}
+	 	{{ form.non_field_errors }}
+
+
+	    <div class="fieldWrapper">
+	        {{ form.business_name.errors }}
+	        <label for="id_business_name">Business Name:</label>
+	        {{ form.business_name }}
+	    </div>
+
+	    <hr>
+	    <br>
+	    <div class="fieldWrapper">
+	        {{ form.category_name.errors }}
+	        <label for="id_category_name">Category: </label>
+	        {{ form.category_name }}
+	    </div>
+
+        <hr>
+
+
+
+		<button type="submit">Submit</button>
+	</form>
+
+
+
+{% endblock content %}
+
+
